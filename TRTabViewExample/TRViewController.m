@@ -4,7 +4,7 @@
 //
 //  Created by Matthias Keiser on 29.07.13.
 //  Copyright (c) 2013 Matthias Keiser. All rights reserved.
-//	info@tristan-inc.com
+//	matthias@tristan-inc.com
 //
 
 #import "TRViewController.h"
