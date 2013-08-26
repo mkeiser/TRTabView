@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D837B60B17A711E80067C93B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D837B60A17A711E80067C93B /* UIKit.framework */; };
+		D837B60D17A711E80067C93B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D837B60C17A711E80067C93B /* Foundation.framework */; };
+		D837B60F17A711E80067C93B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D837B60E17A711E80067C93B /* CoreGraphics.framework */; };
+		D837B61517A711E80067C93B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D837B61317A711E80067C93B /* InfoPlist.strings */; };
+		D837B61717A711E80067C93B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D837B61617A711E80067C93B /* main.m */; };
+		D837B61B17A711E80067C93B /* TRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D837B61A17A711E80067C93B /* TRAppDelegate.m */; };
+		D837B61D17A711E80067C93B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D837B61C17A711E80067C93B /* Default.png */; };
+		D837B61F17A711E80067C93B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D837B61E17A711E80067C93B /* Default@2x.png */; };
+		D837B62117A711E80067C93B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D837B62017A711E80067C93B /* Default-568h@2x.png */; };
+		D837B62417A711E80067C93B /* TRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D837B62317A711E80067C93B /* TRViewController.m */; };
+		D837B62717A711E80067C93B /* TRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D837B62517A711E80067C93B /* TRViewController.xib */; };
+		D837B64817A7125B0067C93B /* TRTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = D837B64717A7125B0067C93B /* TRTabView.m */; };
+		D837B64E17A8726A0067C93B /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D837B64A17A872690067C93B /* addButton.png */; };
+		D837B64F17A8726A0067C93B /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D837B64B17A872690067C93B /* addButton@2x.png */; };
+		D837B65017A8726A0067C93B /* overflowButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D837B64C17A8726A0067C93B /* overflowButton.png */; };
+		D837B65117A8726A0067C93B /* overflowButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D837B64D17A8726A0067C93B /* overflowButton@2x.png */; };
+		D837B65417A873E90067C93B /* TRTab.m in Sources */ = {isa = PBXBuildFile; fileRef = D837B65317A873E90067C93B /* TRTab.m */; };
+		D837B65717A87DBF0067C93B /* deleteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D837B65517A87DBF0067C93B /* deleteButton.png */; };
+		D837B65817A87DBF0067C93B /* deleteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D837B65617A87DBF0067C93B /* deleteButton@2x.png */; };
+		D88E0DC917C3854900D26892 /* trtab_background_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DBF17C3854900D26892 /* trtab_background_fill.png */; };
+		D88E0DCA17C3854900D26892 /* trtab_background_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DC017C3854900D26892 /* trtab_background_fill@2x.png */; };
+		D88E0DCB17C3854900D26892 /* trtab_bottom_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DC117C3854900D26892 /* trtab_bottom_edge.png */; };
+		D88E0DCC17C3854900D26892 /* trtab_bottom_edge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DC217C3854900D26892 /* trtab_bottom_edge@2x.png */; };
+		D88E0DCD17C3854900D26892 /* trtab_foreground_fill.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DC317C3854900D26892 /* trtab_foreground_fill.png */; };
+		D88E0DCE17C3854900D26892 /* trtab_foreground_fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DC417C3854900D26892 /* trtab_foreground_fill@2x.png */; };
+		D88E0DCF17C3854900D26892 /* trtab_top_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DC517C3854900D26892 /* trtab_top_edge.png */; };
+		D88E0DD017C3854900D26892 /* trtab_top_edge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DC617C3854900D26892 /* trtab_top_edge@2x.png */; };
+		D88E0DD117C3854900D26892 /* trtab_vertical_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DC717C3854900D26892 /* trtab_vertical_edge.png */; };
+		D88E0DD217C3854900D26892 /* trtab_vertical_edge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DC817C3854900D26892 /* trtab_vertical_edge@2x.png */; };
+		D88E0DD617C3927B00D26892 /* TRTabViewToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D88E0DD417C3927B00D26892 /* TRTabViewToolbar.m */; };
+		D88E0DDA17C3937E00D26892 /* UIImage+TRStretching.m in Sources */ = {isa = PBXBuildFile; fileRef = D88E0DD817C3937E00D26892 /* UIImage+TRStretching.m */; };
+		D88E0DE117C3A42D00D26892 /* trtabview_background.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DDF17C3A42C00D26892 /* trtabview_background.png */; };
+		D88E0DE217C3A42D00D26892 /* trtabview_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DE017C3A42C00D26892 /* trtabview_background@2x.png */; };
+		D88E0DE517C3A48E00D26892 /* trtabview_bottom_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DE317C3A48E00D26892 /* trtabview_bottom_edge.png */; };
+		D88E0DE617C3A48E00D26892 /* trtabview_bottom_edge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DE417C3A48E00D26892 /* trtabview_bottom_edge@2x.png */; };
+		D8F8F52B17C8F89B00DF6B15 /* TRViewController+DebugActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F8F52A17C8F89B00DF6B15 /* TRViewController+DebugActions.m */; };
+		D8F8F52F17CB562800DF6B15 /* TRContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F8F52D17CB562700DF6B15 /* TRContentViewController.m */; };
+		D8F8F53017CB562800DF6B15 /* TRContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F8F52E17CB562800DF6B15 /* TRContentViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D837B60717A711E80067C93B /* TRTabViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRTabViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D837B60A17A711E80067C93B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D837B60C17A711E80067C93B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D837B60E17A711E80067C93B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D837B61217A711E80067C93B /* TRTabViewExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TRTabViewExample-Info.plist"; sourceTree = "<group>"; };
+		D837B61417A711E80067C93B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D837B61617A711E80067C93B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D837B61817A711E80067C93B /* TRTabViewExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TRTabViewExample-Prefix.pch"; sourceTree = "<group>"; };
+		D837B61917A711E80067C93B /* TRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRAppDelegate.h; sourceTree = "<group>"; };
+		D837B61A17A711E80067C93B /* TRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRAppDelegate.m; sourceTree = "<group>"; };
+		D837B61C17A711E80067C93B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D837B61E17A711E80067C93B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D837B62017A711E80067C93B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D837B62217A711E80067C93B /* TRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRViewController.h; sourceTree = "<group>"; };
+		D837B62317A711E80067C93B /* TRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRViewController.m; sourceTree = "<group>"; };
+		D837B62617A711E80067C93B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TRViewController.xib; sourceTree = "<group>"; };
+		D837B62E17A711E90067C93B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D837B64617A7125B0067C93B /* TRTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTabView.h; sourceTree = "<group>"; };
+		D837B64717A7125B0067C93B /* TRTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTabView.m; sourceTree = "<group>"; };
+		D837B64A17A872690067C93B /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
+		D837B64B17A872690067C93B /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
+		D837B64C17A8726A0067C93B /* overflowButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overflowButton.png; sourceTree = "<group>"; };
+		D837B64D17A8726A0067C93B /* overflowButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overflowButton@2x.png"; sourceTree = "<group>"; };
+		D837B65217A873E90067C93B /* TRTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTab.h; sourceTree = "<group>"; };
+		D837B65317A873E90067C93B /* TRTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTab.m; sourceTree = "<group>"; };
+		D837B65517A87DBF0067C93B /* deleteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteButton.png; sourceTree = "<group>"; };
+		D837B65617A87DBF0067C93B /* deleteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deleteButton@2x.png"; sourceTree = "<group>"; };
+		D88E0DBF17C3854900D26892 /* trtab_background_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trtab_background_fill.png; sourceTree = "<group>"; };
+		D88E0DC017C3854900D26892 /* trtab_background_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trtab_background_fill@2x.png"; sourceTree = "<group>"; };
+		D88E0DC117C3854900D26892 /* trtab_bottom_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trtab_bottom_edge.png; sourceTree = "<group>"; };
+		D88E0DC217C3854900D26892 /* trtab_bottom_edge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trtab_bottom_edge@2x.png"; sourceTree = "<group>"; };
+		D88E0DC317C3854900D26892 /* trtab_foreground_fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trtab_foreground_fill.png; sourceTree = "<group>"; };
+		D88E0DC417C3854900D26892 /* trtab_foreground_fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trtab_foreground_fill@2x.png"; sourceTree = "<group>"; };
+		D88E0DC517C3854900D26892 /* trtab_top_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trtab_top_edge.png; sourceTree = "<group>"; };
+		D88E0DC617C3854900D26892 /* trtab_top_edge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trtab_top_edge@2x.png"; sourceTree = "<group>"; };
+		D88E0DC717C3854900D26892 /* trtab_vertical_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trtab_vertical_edge.png; sourceTree = "<group>"; };
+		D88E0DC817C3854900D26892 /* trtab_vertical_edge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trtab_vertical_edge@2x.png"; sourceTree = "<group>"; };
+		D88E0DD317C3927B00D26892 /* TRTabViewToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = TRTabViewToolbar.h; sourceTree = "<group>"; };
+		D88E0DD417C3927B00D26892 /* TRTabViewToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTabViewToolbar.m; sourceTree = "<group>"; };
+		D88E0DD717C3937E00D26892 /* UIImage+TRStretching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = "UIImage+TRStretching.h"; sourceTree = "<group>"; };
+		D88E0DD817C3937E00D26892 /* UIImage+TRStretching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TRStretching.m"; sourceTree = "<group>"; };
+		D88E0DDF17C3A42C00D26892 /* trtabview_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trtabview_background.png; sourceTree = "<group>"; };
+		D88E0DE017C3A42C00D26892 /* trtabview_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trtabview_background@2x.png"; sourceTree = "<group>"; };
+		D88E0DE317C3A48E00D26892 /* trtabview_bottom_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trtabview_bottom_edge.png; sourceTree = "<group>"; };
+		D88E0DE417C3A48E00D26892 /* trtabview_bottom_edge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trtabview_bottom_edge@2x.png"; sourceTree = "<group>"; };
+		D8F8F52917C8F89B00DF6B15 /* TRViewController+DebugActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TRViewController+DebugActions.h"; sourceTree = "<group>"; };
+		D8F8F52A17C8F89B00DF6B15 /* TRViewController+DebugActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TRViewController+DebugActions.m"; sourceTree = "<group>"; };
+		D8F8F52C17CB562700DF6B15 /* TRContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRContentViewController.h; sourceTree = "<group>"; };
+		D8F8F52D17CB562700DF6B15 /* TRContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRContentViewController.m; sourceTree = "<group>"; };
+		D8F8F52E17CB562800DF6B15 /* TRContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRContentViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D837B60417A711E80067C93B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D837B60B17A711E80067C93B /* UIKit.framework in Frameworks */,
+				D837B60D17A711E80067C93B /* Foundation.framework in Frameworks */,
+				D837B60F17A711E80067C93B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D837B5FE17A711E80067C93B = {
+			isa = PBXGroup;
+			children = (
+				D837B64517A7124E0067C93B /* TRTabView */,
+				D837B61017A711E80067C93B /* TRTabViewExample */,
+				D837B60917A711E80067C93B /* Frameworks */,
+				D837B60817A711E80067C93B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D837B60817A711E80067C93B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D837B60717A711E80067C93B /* TRTabViewExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D837B60917A711E80067C93B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D837B60A17A711E80067C93B /* UIKit.framework */,
+				D837B60C17A711E80067C93B /* Foundation.framework */,
+				D837B60E17A711E80067C93B /* CoreGraphics.framework */,
+				D837B62E17A711E90067C93B /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D837B61017A711E80067C93B /* TRTabViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				D837B61917A711E80067C93B /* TRAppDelegate.h */,
+				D837B61A17A711E80067C93B /* TRAppDelegate.m */,
+				D837B62217A711E80067C93B /* TRViewController.h */,
+				D837B62317A711E80067C93B /* TRViewController.m */,
+				D837B62517A711E80067C93B /* TRViewController.xib */,
+				D8F8F52917C8F89B00DF6B15 /* TRViewController+DebugActions.h */,
+				D8F8F52A17C8F89B00DF6B15 /* TRViewController+DebugActions.m */,
+				D8F8F52C17CB562700DF6B15 /* TRContentViewController.h */,
+				D8F8F52D17CB562700DF6B15 /* TRContentViewController.m */,
+				D8F8F52E17CB562800DF6B15 /* TRContentViewController.xib */,
+				D837B61117A711E80067C93B /* Supporting Files */,
+			);
+			path = TRTabViewExample;
+			sourceTree = "<group>";
+		};
+		D837B61117A711E80067C93B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D837B61217A711E80067C93B /* TRTabViewExample-Info.plist */,
+				D837B61317A711E80067C93B /* InfoPlist.strings */,
+				D837B61617A711E80067C93B /* main.m */,
+				D837B61817A711E80067C93B /* TRTabViewExample-Prefix.pch */,
+				D837B61C17A711E80067C93B /* Default.png */,
+				D837B61E17A711E80067C93B /* Default@2x.png */,
+				D837B62017A711E80067C93B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D837B64517A7124E0067C93B /* TRTabView */ = {
+			isa = PBXGroup;
+			children = (
+				D88E0DD717C3937E00D26892 /* UIImage+TRStretching.h */,
+				D88E0DD817C3937E00D26892 /* UIImage+TRStretching.m */,
+				D837B64617A7125B0067C93B /* TRTabView.h */,
+				D837B64717A7125B0067C93B /* TRTabView.m */,
+				D837B65217A873E90067C93B /* TRTab.h */,
+				D837B65317A873E90067C93B /* TRTab.m */,
+				D88E0DD317C3927B00D26892 /* TRTabViewToolbar.h */,
+				D88E0DD417C3927B00D26892 /* TRTabViewToolbar.m */,
+				D837B64917A872690067C93B /* Resources */,
+			);
+			path = TRTabView;
+			sourceTree = "<group>";
+		};
+		D837B64917A872690067C93B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D837B64A17A872690067C93B /* addButton.png */,
+				D837B64B17A872690067C93B /* addButton@2x.png */,
+				D837B64C17A8726A0067C93B /* overflowButton.png */,
+				D837B64D17A8726A0067C93B /* overflowButton@2x.png */,
+				D837B65517A87DBF0067C93B /* deleteButton.png */,
+				D837B65617A87DBF0067C93B /* deleteButton@2x.png */,
+				D88E0DBF17C3854900D26892 /* trtab_background_fill.png */,
+				D88E0DC017C3854900D26892 /* trtab_background_fill@2x.png */,
+				D88E0DC117C3854900D26892 /* trtab_bottom_edge.png */,
+				D88E0DC217C3854900D26892 /* trtab_bottom_edge@2x.png */,
+				D88E0DC317C3854900D26892 /* trtab_foreground_fill.png */,
+				D88E0DC417C3854900D26892 /* trtab_foreground_fill@2x.png */,
+				D88E0DC517C3854900D26892 /* trtab_top_edge.png */,
+				D88E0DC617C3854900D26892 /* trtab_top_edge@2x.png */,
+				D88E0DC717C3854900D26892 /* trtab_vertical_edge.png */,
+				D88E0DC817C3854900D26892 /* trtab_vertical_edge@2x.png */,
+				D88E0DDF17C3A42C00D26892 /* trtabview_background.png */,
+				D88E0DE017C3A42C00D26892 /* trtabview_background@2x.png */,
+				D88E0DE317C3A48E00D26892 /* trtabview_bottom_edge.png */,
+				D88E0DE417C3A48E00D26892 /* trtabview_bottom_edge@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D837B60617A711E80067C93B /* TRTabViewExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D837B63F17A711E90067C93B /* Build configuration list for PBXNativeTarget "TRTabViewExample" */;
+			buildPhases = (
+				D837B60317A711E80067C93B /* Sources */,
+				D837B60417A711E80067C93B /* Frameworks */,
+				D837B60517A711E80067C93B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TRTabViewExample;
+			productName = TRTabViewExample;
+			productReference = D837B60717A711E80067C93B /* TRTabViewExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D837B5FF17A711E80067C93B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TR;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Matthias Keiser";
+			};
+			buildConfigurationList = D837B60217A711E80067C93B /* Build configuration list for PBXProject "TRTabViewExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D837B5FE17A711E80067C93B;
+			productRefGroup = D837B60817A711E80067C93B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D837B60617A711E80067C93B /* TRTabViewExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D837B60517A711E80067C93B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D837B61517A711E80067C93B /* InfoPlist.strings in Resources */,
+				D837B61D17A711E80067C93B /* Default.png in Resources */,
+				D837B61F17A711E80067C93B /* Default@2x.png in Resources */,
+				D837B62117A711E80067C93B /* Default-568h@2x.png in Resources */,
+				D837B62717A711E80067C93B /* TRViewController.xib in Resources */,
+				D837B64E17A8726A0067C93B /* addButton.png in Resources */,
+				D837B64F17A8726A0067C93B /* addButton@2x.png in Resources */,
+				D837B65017A8726A0067C93B /* overflowButton.png in Resources */,
+				D837B65117A8726A0067C93B /* overflowButton@2x.png in Resources */,
+				D837B65717A87DBF0067C93B /* deleteButton.png in Resources */,
+				D837B65817A87DBF0067C93B /* deleteButton@2x.png in Resources */,
+				D88E0DC917C3854900D26892 /* trtab_background_fill.png in Resources */,
+				D88E0DCA17C3854900D26892 /* trtab_background_fill@2x.png in Resources */,
+				D88E0DCB17C3854900D26892 /* trtab_bottom_edge.png in Resources */,
+				D88E0DCC17C3854900D26892 /* trtab_bottom_edge@2x.png in Resources */,
+				D88E0DCD17C3854900D26892 /* trtab_foreground_fill.png in Resources */,
+				D88E0DCE17C3854900D26892 /* trtab_foreground_fill@2x.png in Resources */,
+				D88E0DCF17C3854900D26892 /* trtab_top_edge.png in Resources */,
+				D88E0DD017C3854900D26892 /* trtab_top_edge@2x.png in Resources */,
+				D88E0DD117C3854900D26892 /* trtab_vertical_edge.png in Resources */,
+				D88E0DD217C3854900D26892 /* trtab_vertical_edge@2x.png in Resources */,
+				D88E0DE117C3A42D00D26892 /* trtabview_background.png in Resources */,
+				D88E0DE217C3A42D00D26892 /* trtabview_background@2x.png in Resources */,
+				D88E0DE517C3A48E00D26892 /* trtabview_bottom_edge.png in Resources */,
+				D88E0DE617C3A48E00D26892 /* trtabview_bottom_edge@2x.png in Resources */,
+				D8F8F53017CB562800DF6B15 /* TRContentViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D837B60317A711E80067C93B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D837B61717A711E80067C93B /* main.m in Sources */,
+				D837B61B17A711E80067C93B /* TRAppDelegate.m in Sources */,
+				D837B62417A711E80067C93B /* TRViewController.m in Sources */,
+				D837B64817A7125B0067C93B /* TRTabView.m in Sources */,
+				D837B65417A873E90067C93B /* TRTab.m in Sources */,
+				D88E0DD617C3927B00D26892 /* TRTabViewToolbar.m in Sources */,
+				D88E0DDA17C3937E00D26892 /* UIImage+TRStretching.m in Sources */,
+				D8F8F52B17C8F89B00DF6B15 /* TRViewController+DebugActions.m in Sources */,
+				D8F8F52F17CB562800DF6B15 /* TRContentViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D837B61317A711E80067C93B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D837B61417A711E80067C93B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D837B62517A711E80067C93B /* TRViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D837B62617A711E80067C93B /* en */,
+			);
+			name = TRViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D837B63D17A711E90067C93B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D837B63E17A711E90067C93B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D837B64017A711E90067C93B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TRTabViewExample/TRTabViewExample-Prefix.pch";
+				INFOPLIST_FILE = "TRTabViewExample/TRTabViewExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D837B64117A711E90067C93B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TRTabViewExample/TRTabViewExample-Prefix.pch";
+				INFOPLIST_FILE = "TRTabViewExample/TRTabViewExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D837B60217A711E80067C93B /* Build configuration list for PBXProject "TRTabViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D837B63D17A711E90067C93B /* Debug */,
+				D837B63E17A711E90067C93B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D837B63F17A711E90067C93B /* Build configuration list for PBXNativeTarget "TRTabViewExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D837B64017A711E90067C93B /* Debug */,
+				D837B64117A711E90067C93B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D837B5FF17A711E80067C93B /* Project object */;
+}
