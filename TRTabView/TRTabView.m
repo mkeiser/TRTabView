@@ -612,6 +612,9 @@ sets the variables from which self.overflows is dynamically calculated.*/
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	
+	if (!self.numberOfVisibleTabs)
+		return;
+	
 	if([touches count] != 1)
 		return;
 	
@@ -669,7 +672,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 		CGRect frame = [self tabRectForTabAtVisibleIndex:self.currentDragOperation.visibleIndex addButtonVisible:self.showAddButton];
 		frame.origin.x += deltaX;
 		
-		NSUInteger hypotheticVisibleIndex;
+		NSUInteger hypotheticVisibleIndex = NSNotFound; //Silence analyzer
 		CGFloat minCenterDistance = CGFLOAT_MAX;
 		CGFloat draggedCenterX = CGRectGetMidX(frame);
 		
