@@ -66,7 +66,7 @@ static NSString * const kTabIdentifier = @"tab";
 
 - (void)tabViewCommitTabAddition:(TRTabView *)tabView {
 	
-	id modelObject = [NSString stringWithFormat:@"Tab %u", self.globalTabCount++];
+	id modelObject = [NSString stringWithFormat:@"Tab %lu", (unsigned long)self.globalTabCount++];
 	[self.model addObject:modelObject];
 	
 	[tabView addTabAtIndex:tabView.numberOfTabs animated:YES];
@@ -104,7 +104,7 @@ static NSString * const kTabIdentifier = @"tab";
 		
 		for (NSUInteger i = 0; i < kNumberInitialTabs; i++) {
 			
-			[_model addObject:[NSString stringWithFormat:@"Tab %u", self.globalTabCount++]];
+			[_model addObject:[NSString stringWithFormat:@"Tab %lu", (unsigned long)self.globalTabCount++]];
 		}
 	}
 	
