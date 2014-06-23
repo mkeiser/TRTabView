@@ -51,7 +51,7 @@ static const NSUInteger kOverflowTabSection = 0;
 @property (nonatomic, strong) UITouch *touch;
 @property (nonatomic, assign) CGPoint dragStartPosition;
 @property (nonatomic, assign) NSUInteger visibleIndex;
-@property (nonatomic, assign) NSUInteger hypothicVisibleIndex;
+@property (nonatomic, assign) NSUInteger hypotheticVisibleIndex;
 @property (nonatomic, strong) TRTab *tab;
 @property (nonatomic, assign) BOOL hasDragged;
 
@@ -450,10 +450,10 @@ sets the variables from which self.overflows is dynamically calculated.*/
 			
 			if (self.isDragging) {
 				
-				if (visibleIndex > self.currentDragOperation.visibleIndex && visibleIndex <= self.currentDragOperation.hypothicVisibleIndex)
+				if (visibleIndex > self.currentDragOperation.visibleIndex && visibleIndex <= self.currentDragOperation.hypotheticVisibleIndex)
 					visibleIndex--;
 				
-				else if (visibleIndex < self.currentDragOperation.visibleIndex && visibleIndex >= self.currentDragOperation.hypothicVisibleIndex)
+				else if (visibleIndex < self.currentDragOperation.visibleIndex && visibleIndex >= self.currentDragOperation.hypotheticVisibleIndex)
 					visibleIndex++;
 				
 			}
@@ -643,7 +643,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 					dragOperation.tab = self.tabViews[i];
 					dragOperation.dragStartPosition = touchLocation;
 					dragOperation.visibleIndex = i;
-					dragOperation.hypothicVisibleIndex = i;
+					dragOperation.hypotheticVisibleIndex = i;
 					dragOperation.touch = touch;
 					
 					self.currentDragOperation = dragOperation;
@@ -700,9 +700,9 @@ sets the variables from which self.overflows is dynamically calculated.*/
 			self.currentDragOperation.tab.frame = frame;
 			self.currentDragOperation.tab.showsOverflowButton = self.overflows && (hypotheticVisibleIndex == (self.numberOfVisibleTabs - 1));
 			
-			if(hypotheticVisibleIndex != self.currentDragOperation.hypothicVisibleIndex) {
+			if(hypotheticVisibleIndex != self.currentDragOperation.hypotheticVisibleIndex) {
 				
-				self.currentDragOperation.hypothicVisibleIndex = hypotheticVisibleIndex;
+				self.currentDragOperation.hypotheticVisibleIndex = hypotheticVisibleIndex;
 				
 				[UIView animateWithDuration:kAnimationDuration delay:0.0 options:UIViewAnimationOptionOverrideInheritedDuration animations:^{
 					
@@ -734,13 +734,13 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	if (self.isDragging && [touches containsObject:self.currentDragOperation.touch]) {
 		
 		if ([self.delegate respondsToSelector:@selector(tabView:didMoveTabAtIndex:toIndex:)])
-			[self.delegate tabView:self didMoveTabAtIndex:[self tabIndexForVisibleIndex:self.currentDragOperation.visibleIndex] toIndex:[self tabIndexForVisibleIndex:self.currentDragOperation.hypothicVisibleIndex]];
+			[self.delegate tabView:self didMoveTabAtIndex:[self tabIndexForVisibleIndex:self.currentDragOperation.visibleIndex] toIndex:[self tabIndexForVisibleIndex:self.currentDragOperation.hypotheticVisibleIndex]];
 		
 		TRTab *tab = self.tabViews[self.currentDragOperation.visibleIndex];
 		[self.tabViews removeObjectAtIndex:self.currentDragOperation.visibleIndex];
-		[self.tabViews insertObject:tab atIndex:self.currentDragOperation.hypothicVisibleIndex];
+		[self.tabViews insertObject:tab atIndex:self.currentDragOperation.hypotheticVisibleIndex];
 
-		self.selectedTabIndex = self.currentDragOperation.hypothicVisibleIndex;
+		self.selectedTabIndex = self.currentDragOperation.hypotheticVisibleIndex;
 		self.currentDragOperation = nil;
 	
 		[UIView animateWithDuration:kAnimationDuration animations:^{
@@ -808,13 +808,13 @@ sets the variables from which self.overflows is dynamically calculated.*/
 		return arrayIndex;
 	
 	if (self.currentDragOperation.tab == tab) {
-		return self.currentDragOperation.hypothicVisibleIndex;
+		return self.currentDragOperation.hypotheticVisibleIndex;
 	}
 	
-	if (arrayIndex > self.currentDragOperation.visibleIndex && arrayIndex <= self.currentDragOperation.hypothicVisibleIndex)
+	if (arrayIndex > self.currentDragOperation.visibleIndex && arrayIndex <= self.currentDragOperation.hypotheticVisibleIndex)
 		arrayIndex--;
 	
-	else if (arrayIndex < self.currentDragOperation.visibleIndex && arrayIndex >= self.currentDragOperation.hypothicVisibleIndex)
+	else if (arrayIndex < self.currentDragOperation.visibleIndex && arrayIndex >= self.currentDragOperation.hypotheticVisibleIndex)
 		arrayIndex++;
 
 	return arrayIndex;
@@ -822,7 +822,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 
 - (NSUInteger)positionOfDraggedTab {
 	
-	return (self.currentDragOperation.hasDragged ? self.currentDragOperation.hypothicVisibleIndex : NSNotFound);
+	return (self.currentDragOperation.hasDragged ? self.currentDragOperation.hypotheticVisibleIndex : NSNotFound);
 }
 
 - (NSUInteger)indexOfTab:(TRTab *)tab {
