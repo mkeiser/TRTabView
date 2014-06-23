@@ -1,6 +1,6 @@
 //
 //  UIImage+TRStretching.h
-//  TRTabViewExample
+//  TRTabView
 //
 //  Created by Matthias Keiser on 20.08.13.
 //  Copyright (c) 2013 Matthias Keiser. All rights reserved.
