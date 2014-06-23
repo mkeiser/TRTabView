@@ -20,9 +20,10 @@ Pod::Spec.new do |s|
   s.summary      = "A tab view as seen in Mobile Safari for iPad, using the familiar delegate/data source design pattern known from UITableView."
 
   s.description  = <<-DESC
-                   A flexible implementation of a tabbed view like the one in Safari for iPad.
-                   It uses a delegate design pattern that is inspired by the UITableView delegate and data source methods.
+                   A flexible implementation of a tabbed view like the one in Safari for iPad. It uses a delegate design pattern that is inspired by the UITableView delegate and data source methods.
+                   
                    Tab reordering, overflow behavior, the minimum/maximum number of tabs, the minimum/maximum tab widths and much more are easy configurable by implementing the corresponding delegate calls.
+                   
                    For most settings there is a reasonable default already provided.
                    Display orientation changes are supported out of the box.
                    
@@ -61,10 +62,10 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  s.platform     = :ios, "6.1"
+  s.platform     = :ios
 
   #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
+  s.ios.deployment_target = "6.0"
   # s.osx.deployment_target = "10.7"
 
 
