@@ -13,19 +13,6 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-// Checks if the delegate responds to the given selector and then calls it.
-#define INFORM_DELEGATE(delegateSelector, ...) do { \
-	if([self.delegate respondsToSelector:@selector(delegateSelector)]) { \
-		objc_msgSend(self.delegate, @selector(delegateSelector), __VA_ARGS__); \
-	} }\
-	while (0)
-
-// Checks if the delegate responds to the given selector and then calls it. For methods returning BOOL.
-// If the delegate does not respond, the provided default value is returned.
-#define ASK_DELEGATE(default, delegateSelector, ...) (\
-	[self.delegate respondsToSelector:@selector(delegateSelector)] ? (BOOL)objc_msgSend(self.delegate, @selector(delegateSelector), __VA_ARGS__) : default \
-)
-
 // Duration of all animations.
 static const NSTimeInterval kAnimationDuration = .2;
 
@@ -259,7 +246,10 @@ static const NSUInteger kOverflowTabSection = 0;
 	if (self.numberOfTabs) {
 		
 		self.selectedTabIndex = self.selectedTabIndex >= self.numberOfTabs ? 0 : self.selectedTabIndex;
-		INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
+
+        if ([self.delegate respondsToSelector:@selector(tabView:didSelectTabAtIndex:)]) {
+            [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
+        }
 	}
 	
 	[self setNeedsLayout];
@@ -630,14 +620,23 @@ sets the variables from which self.overflows is dynamically calculated.*/
 		if (CGRectContainsPoint([self tabRectForTabAtVisibleIndex:i addButtonVisible:self.showAddButton], touchLocation)) {
 			
 			NSUInteger index = [self tabIndexForVisibleIndex:i];
-			
-			if(ASK_DELEGATE(YES, tabView:shouldSelectTabAtIndex:, self, index)) {
+
+            BOOL shouldSelect = [self.delegate respondsToSelector:@selector(tabView:shouldSelectTabAtIndex:)] ?
+            [self.delegate tabView:self shouldSelectTabAtIndex:index] : YES;
+
+			if(shouldSelect) {
 				
 				self.selectedTabIndex = index;
-				INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
-				
+
+                if ([self.delegate respondsToSelector:@selector(tabView:didSelectTabAtIndex:)]) {
+                    [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
+                }
+
 				// We only initiate a drag operation if we can select the tab and reordering is allowed.
-				if(self.allowTabReordering && ASK_DELEGATE(YES, tabView:shouldStartDraggingTabAtIndex:, self, index)) {
+                BOOL startDrag = [self.delegate respondsToSelector:@selector(tabView:shouldStartDraggingTabAtIndex:)] ?
+                [self.delegate tabView:self shouldStartDraggingTabAtIndex:index] : YES;
+
+				if(self.allowTabReordering && startDrag) {
 										
 					TRTabDragOperation *dragOperation = [TRTabDragOperation new];
 					dragOperation.tab = self.tabViews[i];
@@ -840,8 +839,10 @@ sets the variables from which self.overflows is dynamically calculated.*/
 
 
 - (IBAction)userAddTab:(id)sender {
-	
-	INFORM_DELEGATE(tabViewCommitTabAddition:, self);
+
+    if ([self.delegate respondsToSelector:@selector(tabViewCommitTabAddition:)]) {
+        [self.delegate tabViewCommitTabAddition:self];
+    }
 }
 
 // Sent from TRTab
@@ -855,8 +856,10 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	}
 	
 	NSUInteger index = [self tabIndexForVisibleIndex:visibleIndex];
-	
-	INFORM_DELEGATE(tabView:commitTabDeletionAtIndex:, self, index);
+
+    if ([self.delegate respondsToSelector:@selector(tabView:commitTabDeletionAtIndex:)]) {
+        [self.delegate tabView:self commitTabDeletionAtIndex:index];
+    }
 }
 
 - (IBAction)overflowAction:(TRTab *)tab {
@@ -974,8 +977,10 @@ sets the variables from which self.overflows is dynamically calculated.*/
 			
 			self.selectedTabIndex--;
 		}
-		
-		INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
+
+        if ([self.delegate respondsToSelector:@selector(tabView:didSelectTabAtIndex:)]) {
+            [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
+        }
 	}
 
 	[UIView animateWithDuration:kAnimationDuration animations:^{
@@ -1043,8 +1048,10 @@ sets the variables from which self.overflows is dynamically calculated.*/
 			
 			[self removeTabAtVisibleIndex:[self.tabViews count] - 1];
 		}
-		
-		INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
+
+        if ([self.delegate respondsToSelector:@selector(tabView:didSelectTabAtIndex:)]) {
+            [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
+        }
 	}];
 }
 
@@ -1086,7 +1093,10 @@ sets the variables from which self.overflows is dynamically calculated.*/
 		[self loadTabFromDelegateAtIndex:self.indexOfVisibleOverflowedTab visibleIndex:self.numberOfVisibleTabs - 1 insert:NO animationStartOffset:TRTabAnimationStartOffsetNone];
 		self.selectedTabIndex = self.indexOfVisibleOverflowedTab;
 		[self setNeedsLayout];
-		INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
+
+        if ([self.delegate respondsToSelector:@selector(tabView:didSelectTabAtIndex:)]) {
+            [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
+        }
 	}
 	
 	[self.overflowPopover dismissPopoverAnimated:YES];
