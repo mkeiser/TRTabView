@@ -64,7 +64,6 @@
 		D837B62217A711E80067C93B /* TRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRViewController.h; sourceTree = "<group>"; };
 		D837B62317A711E80067C93B /* TRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRViewController.m; sourceTree = "<group>"; };
 		D837B62617A711E80067C93B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TRViewController.xib; sourceTree = "<group>"; };
-		D837B62E17A711E90067C93B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		D837B64617A7125B0067C93B /* TRTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTabView.h; sourceTree = "<group>"; };
 		D837B64717A7125B0067C93B /* TRTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTabView.m; sourceTree = "<group>"; };
 		D837B64A17A872690067C93B /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
@@ -138,7 +137,6 @@
 				D837B60A17A711E80067C93B /* UIKit.framework */,
 				D837B60C17A711E80067C93B /* Foundation.framework */,
 				D837B60E17A711E80067C93B /* CoreGraphics.framework */,
-				D837B62E17A711E90067C93B /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
