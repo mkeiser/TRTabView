@@ -100,7 +100,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "TRTabView/Resources"
+  s.resources = "TRTabView/Resources/*"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
