@@ -27,6 +27,8 @@ Pod::Spec.new do |s|
                    For most settings there is a reasonable default already provided.
                    Display orientation changes are supported out of the box.
                    
+                   See https://github.com/mkeiser/TRTabView for an example project.
+                   
                    DESC
 
   s.homepage     = "https://github.com/mkeiser/TRTabView"
