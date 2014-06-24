@@ -878,7 +878,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	NSUInteger updatedNumberOfTabs = [self.delegate numberOfTabsInTabView:self];
 	
 	if (updatedNumberOfTabs != (self.numberOfTabs - 1))
-		[NSException raise:NSGenericException format:@"Invalid number of tabs (%u): was %u before, should be %u after calling deleteTabAtIndex:animated:", updatedNumberOfTabs, self.numberOfTabs, self.numberOfTabs - 1];
+		[NSException raise:NSGenericException format:@"Invalid number of tabs (%@): was %@ before, should be %@ after calling deleteTabAtIndex:animated:", [NSNumber numberWithUnsignedInteger:updatedNumberOfTabs], [NSNumber numberWithUnsignedInteger:self.numberOfTabs], [NSNumber numberWithUnsignedInteger:self.numberOfTabs - 1]];
 
 
 	NSUInteger oldVisibleOverflowedIndex = self.indexOfVisibleOverflowedTab;
@@ -1001,7 +1001,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	NSUInteger updatedNumberOfTabs = [self.delegate numberOfTabsInTabView:self];
 	
 	if (updatedNumberOfTabs != (self.numberOfTabs + 1))
-		[NSException raise:NSGenericException format:@"Invalid number of tabs (%u): was %u before, should be %u after calling deleteTabAtIndex:animated:", updatedNumberOfTabs, self.numberOfTabs, self.numberOfTabs + 1];
+		[NSException raise:NSGenericException format:@"Invalid number of tabs (%@): was %@ before, should be %@ after calling deleteTabAtIndex:animated:", [NSNumber numberWithUnsignedInteger:updatedNumberOfTabs], [NSNumber numberWithUnsignedInteger:self.numberOfTabs], [NSNumber numberWithUnsignedInteger:self.numberOfTabs + 1]];
 
 	
 	self.numberOfTabs++;
