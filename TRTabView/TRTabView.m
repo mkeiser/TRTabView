@@ -259,7 +259,7 @@ static const NSUInteger kOverflowTabSection = 0;
 	if (self.numberOfTabs) {
 		
 		self.selectedTabIndex = self.selectedTabIndex >= self.numberOfTabs ? 0 : self.selectedTabIndex;
-		INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
+        [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
 	}
 	
 	[self setNeedsLayout];
@@ -634,7 +634,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 			if(ASK_DELEGATE(YES, tabView:shouldSelectTabAtIndex:, self, index)) {
 				
 				self.selectedTabIndex = index;
-				INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
+                [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
 				
 				// We only initiate a drag operation if we can select the tab and reordering is allowed.
 				if(self.allowTabReordering && ASK_DELEGATE(YES, tabView:shouldStartDraggingTabAtIndex:, self, index)) {
@@ -840,8 +840,8 @@ sets the variables from which self.overflows is dynamically calculated.*/
 
 
 - (IBAction)userAddTab:(id)sender {
-	
-	INFORM_DELEGATE(tabViewCommitTabAddition:, self);
+    
+	[self.delegate tabViewCommitTabAddition:self];
 }
 
 // Sent from TRTab
@@ -855,8 +855,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	}
 	
 	NSUInteger index = [self tabIndexForVisibleIndex:visibleIndex];
-	
-	INFORM_DELEGATE(tabView:commitTabDeletionAtIndex:, self, index);
+	[self.delegate tabView:self commitTabDeletionAtIndex:index];
 }
 
 - (IBAction)overflowAction:(TRTab *)tab {
@@ -878,7 +877,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	NSUInteger updatedNumberOfTabs = [self.delegate numberOfTabsInTabView:self];
 	
 	if (updatedNumberOfTabs != (self.numberOfTabs - 1))
-		[NSException raise:NSGenericException format:@"Invalid number of tabs (%lu): was %lu before, should be %lu after calling deleteTabAtIndex:animated:", (unsigned long)updatedNumberOfTabs, (unsigned long)self.numberOfTabs, (unsigned long)(self.numberOfTabs - 1)];
+		[NSException raise:NSGenericException format:@"Invalid number of tabs (%@): was %@ before, should be %@ after calling deleteTabAtIndex:animated:", [NSNumber numberWithUnsignedInteger:updatedNumberOfTabs], [NSNumber numberWithUnsignedInteger:self.numberOfTabs], [NSNumber numberWithUnsignedInteger:self.numberOfTabs - 1]];
 
 
 	NSUInteger oldVisibleOverflowedIndex = self.indexOfVisibleOverflowedTab;
@@ -975,7 +974,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 			self.selectedTabIndex--;
 		}
 		
-		INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
+        [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
 	}
 
 	[UIView animateWithDuration:kAnimationDuration animations:^{
@@ -1001,7 +1000,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	NSUInteger updatedNumberOfTabs = [self.delegate numberOfTabsInTabView:self];
 	
 	if (updatedNumberOfTabs != (self.numberOfTabs + 1))
-		[NSException raise:NSGenericException format:@"Invalid number of tabs (%lu): was %lu before, should be %lu after calling deleteTabAtIndex:animated:", (unsigned long)updatedNumberOfTabs, (unsigned long)self.numberOfTabs, (unsigned long)(self.numberOfTabs + 1)];
+		[NSException raise:NSGenericException format:@"Invalid number of tabs (%@): was %@ before, should be %@ after calling deleteTabAtIndex:animated:", [NSNumber numberWithUnsignedInteger:updatedNumberOfTabs], [NSNumber numberWithUnsignedInteger:self.numberOfTabs], [NSNumber numberWithUnsignedInteger:self.numberOfTabs + 1]];
 
 	
 	self.numberOfTabs++;
@@ -1043,8 +1042,8 @@ sets the variables from which self.overflows is dynamically calculated.*/
 			
 			[self removeTabAtVisibleIndex:[self.tabViews count] - 1];
 		}
-		
-		INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
+        
+        [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
 	}];
 }
 
@@ -1086,7 +1085,8 @@ sets the variables from which self.overflows is dynamically calculated.*/
 		[self loadTabFromDelegateAtIndex:self.indexOfVisibleOverflowedTab visibleIndex:self.numberOfVisibleTabs - 1 insert:NO animationStartOffset:TRTabAnimationStartOffsetNone];
 		self.selectedTabIndex = self.indexOfVisibleOverflowedTab;
 		[self setNeedsLayout];
-		INFORM_DELEGATE(tabView:didSelectTabAtIndex:, self, self.selectedTabIndex);
+        
+        [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
 	}
 	
 	[self.overflowPopover dismissPopoverAnimated:YES];
