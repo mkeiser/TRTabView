@@ -53,6 +53,7 @@
 	_titleLabel.textColor = [UIColor grayColor];
 	_titleLabel.font = [UIFont systemFontOfSize:12];
 	_titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    _titleLabel.backgroundColor = [UIColor clearColor];
 	[self addSubview:_titleLabel];
 	
 	_deleteButton = [[UIButton alloc] initWithFrame:CGRectZero];

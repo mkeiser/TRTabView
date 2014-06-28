@@ -47,7 +47,6 @@ static NSString * const kTabIdentifier = @"tab";
 	
 	TRTab *tab = [tabView dequeueDefaultTabForIndex:index];
 	tab.titleLabel.text = [self.model objectAtIndex:index];
-	tab.titleLabel.backgroundColor = [UIColor clearColor];
 
 	return tab;
 }
