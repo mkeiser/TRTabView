@@ -9,11 +9,12 @@
 
 #import "TRViewController.h"
 #import "TRContentViewController.h"
+#import "TRTabView.h"
 #import "TRTab.h"
 
 static NSString * const kTabIdentifier = @"tab";
 
-@interface TRViewController ()
+@interface TRViewController () <TRTabViewDelegate>
 
 @property (strong, nonatomic) NSMapTable *contentViewControllers;
 @property (strong, nonatomic) TRContentViewController *selectedViewController;

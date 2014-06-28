@@ -8,9 +8,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TRTabView.h"
 
-@class TRContentViewController;
+@class TRContentViewController, TRTabView;
 
 @interface TRViewController : UIViewController
 

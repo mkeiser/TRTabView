@@ -8,6 +8,7 @@
 //
 
 #import "TRViewController+DebugActions.h"
+#import "TRTabView.h"
 
 typedef void(^TRBlockAlertCompletion)(UIAlertView *alertView, NSInteger clickedButtonIndex);
 
