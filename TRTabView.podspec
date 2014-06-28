@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TRTabView"
-  s.version      = "0.3.1"
+  s.version      = "0.3.2"
   s.summary      = "A tab view as seen in Mobile Safari for iPad, using the familiar delegate/data source design pattern known from UITableView."
 
   s.description  = <<-DESC
@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/mkeiser/TRTabView.git", :tag => "0.3.1" }
+  s.source       = { :git => "https://github.com/mkeiser/TRTabView.git", :tag => "0.3.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
