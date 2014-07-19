@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/mkeiser/TRTabView.git", :tag => "0.3.2" }
+  s.source       = { :git => "https://github.com/mkeiser/TRTabView.git", :tag => "0.3.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
