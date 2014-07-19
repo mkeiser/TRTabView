@@ -978,8 +978,11 @@ sets the variables from which self.overflows is dynamically calculated.*/
 			self.selectedTabIndex--;
 		}
 
-        if ([self.delegate respondsToSelector:@selector(tabView:didSelectTabAtIndex:)]) {
-            [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
+        if (self.numberOfTabs) {
+
+            if ([self.delegate respondsToSelector:@selector(tabView:didSelectTabAtIndex:)]) {
+                [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
+            }
         }
 	}
 

@@ -80,6 +80,11 @@ static NSString * const kTabIdentifier = @"tab";
 	[self.model removeObjectAtIndex:index];
 	
 	[self.tabView deleteTabAtIndex:index animated:YES];
+
+    if (![self.model count]) {
+
+        self.selectedViewController = nil;
+    }
 }
 
 - (void)tabView:(TRTabView *)tabView didSelectTabAtIndex:(NSUInteger)index {
@@ -127,7 +132,11 @@ static NSString * const kTabIdentifier = @"tab";
 		[_selectedViewController.view removeFromSuperview];
 	
 	_selectedViewController = selectedViewController;
-	
+
+    if (!_selectedViewController) {
+        return;
+    }
+    
 	[self.contentEmbeddingView addSubview:_selectedViewController.view];
 	
 	UIView *theView = _selectedViewController.view;
