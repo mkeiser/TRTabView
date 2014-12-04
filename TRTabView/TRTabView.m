@@ -27,6 +27,7 @@ static NSString * const kDefaultTabIdentifier = @"com.tristaninc.trtab.default";
 // Overflow table view constants
 static NSString * const kOverflowTableCell = @"OverflowTableCell";
 static const NSUInteger kOverflowTabSection = 0;
+static const CGFloat kOverflowTableRowHeight = 44.0;
 
 #pragma mark - TRTabDragOperation
 #pragma mark -
@@ -70,7 +71,7 @@ static const NSUInteger kOverflowTabSection = 0;
 @property (nonatomic, readonly, assign) BOOL isDragging;
 @property (nonatomic, strong) TRTabDragOperation *currentDragOperation;
 @property (nonatomic, assign, readwrite) NSUInteger numberOfTabs;
-@property (nonatomic, strong) UITableView *overflowTable;
+@property (nonatomic, strong) UITableViewController *overflowTableController;
 @property (nonatomic, strong) UIPopoverController *overflowPopover;
 
 @end
@@ -572,27 +573,29 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	return _addButton;
 }
 
-- (UITableView *)overflowTable {
+- (UITableViewController *)overflowTableController {
 	
-	if (!_overflowTable) {
-		
-		_overflowTable = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-		_overflowTable.dataSource = self;
-		_overflowTable.delegate = self;
-		[_overflowTable registerClass:[UITableViewCell class] forCellReuseIdentifier:kOverflowTableCell];
-		_overflowTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+	if (!_overflowTableController) {
+
+		_overflowTableController = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
+		_overflowTableController.tableView.dataSource = self;
+		_overflowTableController.tableView.delegate = self;
+		[_overflowTableController.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kOverflowTableCell];
+		_overflowTableController.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+		if ([_overflowTableController.tableView respondsToSelector:@selector(setEstimatedRowHeight:)]) {
+			[_overflowTableController.tableView setEstimatedRowHeight:kOverflowTableRowHeight];
+		}
 	}
 	
-	return _overflowTable;
+	return _overflowTableController;
 }
 
 - (UIPopoverController *)overflowPopover {
 	
 	if (!_overflowPopover) {
 		
-		UIViewController *viewController = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-		viewController.view = self.overflowTable;
-		_overflowPopover = [[UIPopoverController alloc] initWithContentViewController:viewController];
+		_overflowPopover = [[UIPopoverController alloc] initWithContentViewController:self.overflowTableController];
 	}
 	
 	return _overflowPopover;
@@ -864,10 +867,31 @@ sets the variables from which self.overflows is dynamically calculated.*/
 
 - (IBAction)overflowAction:(TRTab *)tab {
 	
-	[self.overflowTable reloadData];
-	self.overflowPopover.popoverContentSize = CGSizeMake(320, [self.overflowTable numberOfRowsInSection:kOverflowTabSection] * self.overflowTable.rowHeight);
+	[self.overflowTableController.tableView reloadData];
+
+	CGFloat rowHeight;
+
+	// iOS 7+8
+	if ([self.overflowTableController.tableView respondsToSelector:@selector(estimatedRowHeight)]) {
+		rowHeight = self.overflowTableController.tableView.estimatedRowHeight;
+	}
+	// iOS 6
+	else {
+		rowHeight = self.overflowTableController.tableView.rowHeight;
+	}
+
+	CGSize popoverContentSize = CGSizeMake(320, [self.overflowTableController.tableView numberOfRowsInSection:kOverflowTabSection] * rowHeight);
+
+	// for iOS 8 (also set on iOS 7)
+	if ([self.overflowTableController respondsToSelector:@selector(setPreferredContentSize:)]) {
+		[self.overflowTableController setPreferredContentSize:popoverContentSize];
+	}
+
+	// needed for iOS 7 and earlier (ignored on iOS 8)
+	self.overflowPopover.popoverContentSize = popoverContentSize;
+
 	[self.overflowPopover presentPopoverFromRect:tab.overflowButton.frame inView:tab permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-	[self.overflowTable flashScrollIndicators];
+	[self.overflowTableController.tableView flashScrollIndicators];
 }
 
 #pragma mark - Tab addition and deletion
@@ -1103,6 +1127,11 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	}
 	
 	[self.overflowPopover dismissPopoverAnimated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	return kOverflowTableRowHeight;
 }
 
 #pragma mark - drawing
