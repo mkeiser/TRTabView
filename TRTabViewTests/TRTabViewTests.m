@@ -9,32 +9,58 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface TRTabViewTests : XCTestCase
+#import "TRTabView.h"
+#import "TRTab.h"
+#import "TRTabViewTestDelegate.h"
 
+@interface TRTabViewTests : XCTestCase {
+    TRTabView* tabView;
+    TRTabViewTestDelegate* delegate;
+}
 @end
 
 @implementation TRTabViewTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    delegate = [[TRTabViewTestDelegate alloc] init];
+    tabView = [[TRTabView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
+    tabView.delegate = delegate;
+    [tabView reloadTabs];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testRemoveTabBeforeCurrentTab {
+    XCTAssertEqual(3, tabView.numberOfTabs);
+    [tabView setSelectedTabIndex:1];
+
+    [delegate.model removeObjectAtIndex:0];
+    [tabView deleteTabAtIndex:0 animated:NO];
+    XCTAssertEqual(2, tabView.numberOfTabs);
+    XCTAssertEqual(tabView.selectedTabIndex, 0);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testRemoveTabAtCurrentTab {
+    XCTAssertEqual(3, tabView.numberOfTabs);
+    [tabView setSelectedTabIndex:1];
+    
+    [delegate.model removeObjectAtIndex:1];
+    [tabView deleteTabAtIndex:1 animated:NO];
+    XCTAssertEqual(2, tabView.numberOfTabs);
+    XCTAssertEqual(tabView.selectedTabIndex, 1);
+}
+
+- (void)testRemoveTabAfterCurrentTab {
+    XCTAssertEqual(3, tabView.numberOfTabs);
+    [tabView setSelectedTabIndex:1];
+    
+    [delegate.model removeObjectAtIndex:2];
+    [tabView deleteTabAtIndex:2 animated:NO];
+    XCTAssertEqual(2, tabView.numberOfTabs);
+    XCTAssertEqual(tabView.selectedTabIndex, 1);
 }
 
 @end

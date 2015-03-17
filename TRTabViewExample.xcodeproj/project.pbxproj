@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		544E3A5D1AB80B9C00AC3042 /* TRTabViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 544E3A5C1AB80B9C00AC3042 /* TRTabViewTests.m */; };
+		544E3A651AB8110400AC3042 /* TRTabViewTestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 544E3A641AB8110400AC3042 /* TRTabViewTestDelegate.m */; };
 		D837B60B17A711E80067C93B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D837B60A17A711E80067C93B /* UIKit.framework */; };
 		D837B60D17A711E80067C93B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D837B60C17A711E80067C93B /* Foundation.framework */; };
 		D837B60F17A711E80067C93B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D837B60E17A711E80067C93B /* CoreGraphics.framework */; };
@@ -47,7 +49,22 @@
 		D8F8F53017CB562800DF6B15 /* TRContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F8F52E17CB562800DF6B15 /* TRContentViewController.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		544E3A5E1AB80B9C00AC3042 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D837B5FF17A711E80067C93B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D837B60617A711E80067C93B;
+			remoteInfo = TRTabViewExample;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		544E3A581AB80B9C00AC3042 /* TRTabViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TRTabViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		544E3A5B1AB80B9C00AC3042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		544E3A5C1AB80B9C00AC3042 /* TRTabViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRTabViewTests.m; sourceTree = "<group>"; };
+		544E3A631AB8110400AC3042 /* TRTabViewTestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTabViewTestDelegate.h; sourceTree = "<group>"; };
+		544E3A641AB8110400AC3042 /* TRTabViewTestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTabViewTestDelegate.m; sourceTree = "<group>"; };
 		D837B60717A711E80067C93B /* TRTabViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRTabViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D837B60A17A711E80067C93B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D837B60C17A711E80067C93B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +117,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		544E3A551AB80B9C00AC3042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D837B60417A711E80067C93B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -113,11 +137,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		544E3A591AB80B9C00AC3042 /* TRTabViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				544E3A631AB8110400AC3042 /* TRTabViewTestDelegate.h */,
+				544E3A641AB8110400AC3042 /* TRTabViewTestDelegate.m */,
+				544E3A5C1AB80B9C00AC3042 /* TRTabViewTests.m */,
+				544E3A5A1AB80B9C00AC3042 /* Supporting Files */,
+			);
+			path = TRTabViewTests;
+			sourceTree = "<group>";
+		};
+		544E3A5A1AB80B9C00AC3042 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				544E3A5B1AB80B9C00AC3042 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D837B5FE17A711E80067C93B = {
 			isa = PBXGroup;
 			children = (
 				D837B64517A7124E0067C93B /* TRTabView */,
 				D837B61017A711E80067C93B /* TRTabViewExample */,
+				544E3A591AB80B9C00AC3042 /* TRTabViewTests */,
 				D837B60917A711E80067C93B /* Frameworks */,
 				D837B60817A711E80067C93B /* Products */,
 			);
@@ -127,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				D837B60717A711E80067C93B /* TRTabViewExample.app */,
+				544E3A581AB80B9C00AC3042 /* TRTabViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,6 +264,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		544E3A571AB80B9C00AC3042 /* TRTabViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 544E3A621AB80B9C00AC3042 /* Build configuration list for PBXNativeTarget "TRTabViewTests" */;
+			buildPhases = (
+				544E3A541AB80B9C00AC3042 /* Sources */,
+				544E3A551AB80B9C00AC3042 /* Frameworks */,
+				544E3A561AB80B9C00AC3042 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				544E3A5F1AB80B9C00AC3042 /* PBXTargetDependency */,
+			);
+			name = TRTabViewTests;
+			productName = TRTabViewTests;
+			productReference = 544E3A581AB80B9C00AC3042 /* TRTabViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D837B60617A711E80067C93B /* TRTabViewExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D837B63F17A711E90067C93B /* Build configuration list for PBXNativeTarget "TRTabViewExample" */;
@@ -245,6 +308,12 @@
 				CLASSPREFIX = TR;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Matthias Keiser";
+				TargetAttributes = {
+					544E3A571AB80B9C00AC3042 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = D837B60617A711E80067C93B;
+					};
+				};
 			};
 			buildConfigurationList = D837B60217A711E80067C93B /* Build configuration list for PBXProject "TRTabViewExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -259,11 +328,19 @@
 			projectRoot = "";
 			targets = (
 				D837B60617A711E80067C93B /* TRTabViewExample */,
+				544E3A571AB80B9C00AC3042 /* TRTabViewTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		544E3A561AB80B9C00AC3042 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D837B60517A711E80067C93B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -300,6 +377,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		544E3A541AB80B9C00AC3042 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				544E3A5D1AB80B9C00AC3042 /* TRTabViewTests.m in Sources */,
+				544E3A651AB8110400AC3042 /* TRTabViewTestDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D837B60317A711E80067C93B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +403,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		544E3A5F1AB80B9C00AC3042 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D837B60617A711E80067C93B /* TRTabViewExample */;
+			targetProxy = 544E3A5E1AB80B9C00AC3042 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D837B61317A711E80067C93B /* InfoPlist.strings */ = {
@@ -338,6 +432,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		544E3A601AB80B9C00AC3042 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = TRTabViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TRTabViewExample.app/TRTabViewExample";
+			};
+			name = Debug;
+		};
+		544E3A611AB80B9C00AC3042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = TRTabViewTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TRTabViewExample.app/TRTabViewExample";
+			};
+			name = Release;
+		};
 		D837B63D17A711E90067C93B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -421,6 +577,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		544E3A621AB80B9C00AC3042 /* Build configuration list for PBXNativeTarget "TRTabViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				544E3A601AB80B9C00AC3042 /* Debug */,
+				544E3A611AB80B9C00AC3042 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D837B60217A711E80067C93B /* Build configuration list for PBXProject "TRTabViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

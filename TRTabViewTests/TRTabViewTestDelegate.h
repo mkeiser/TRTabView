@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TRTabView.h"
 
-@interface TRTabViewTestDelegate : NSObject
-
+@interface TRTabViewTestDelegate : NSObject <TRTabViewDelegate>
+@property (nonatomic, strong) NSMutableArray* model;
 @end
