@@ -1008,7 +1008,9 @@ sets the variables from which self.overflows is dynamically calculated.*/
                 [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
             }
         }
-	}
+    } else if (self.selectedTabIndex > index) {
+        self.selectedTabIndex--;
+    }
 
 	[UIView animateWithDuration:kAnimationDuration animations:^{
 		
