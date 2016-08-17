@@ -57,6 +57,11 @@ typedef NS_ENUM(NSUInteger, TRTabViewButtonMode) {
 - (void)addTabAtIndex:(NSUInteger)index animated:(BOOL)animated;
 - (void)deleteTabAtIndex:(NSUInteger)index animated:(BOOL)animated;
 
+// This method does not call the delegate method
+// - (void)tabView:(TRTabView *)tabView didMoveTabAtIndex:(NSUInteger)source toIndex:(NSUInteger)destination
+
+- (void)moveTabAtIndex:(NSUInteger)source toIndex:(NSUInteger)destination animated:(BOOL)animated;
+
 // Returns a default tab.
 
 - (TRTab *)dequeueDefaultTabForIndex:(NSUInteger)index;

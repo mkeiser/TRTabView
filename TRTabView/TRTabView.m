@@ -734,23 +734,16 @@ sets the variables from which self.overflows is dynamically calculated.*/
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	
 	if (self.isDragging && [touches containsObject:self.currentDragOperation.touch]) {
-		
-		if ([self.delegate respondsToSelector:@selector(tabView:didMoveTabAtIndex:toIndex:)])
-			[self.delegate tabView:self didMoveTabAtIndex:[self tabIndexForVisibleIndex:self.currentDragOperation.visibleIndex] toIndex:[self tabIndexForVisibleIndex:self.currentDragOperation.hypotheticVisibleIndex]];
-		
-		TRTab *tab = self.tabViews[self.currentDragOperation.visibleIndex];
-		[self.tabViews removeObjectAtIndex:self.currentDragOperation.visibleIndex];
-		[self.tabViews insertObject:tab atIndex:self.currentDragOperation.hypotheticVisibleIndex];
 
-		self.selectedTabIndex = self.currentDragOperation.hypotheticVisibleIndex;
+		NSUInteger actualSource = [self tabIndexForVisibleIndex:self.currentDragOperation.visibleIndex];
+		NSUInteger actualDestination = [self tabIndexForVisibleIndex:self.currentDragOperation.hypotheticVisibleIndex];
+
 		self.currentDragOperation = nil;
-	
-		[UIView animateWithDuration:kAnimationDuration animations:^{
-			
-			[self setNeedsLayout];
-			[self layoutIfNeeded];
-			[[self.tabViews array] makeObjectsPerformSelector:@selector(setNeedsDisplay)];
-		}];
+
+		if ([self.delegate respondsToSelector:@selector(tabView:didMoveTabAtIndex:toIndex:)])
+			[self.delegate tabView:self didMoveTabAtIndex:actualSource toIndex:actualDestination];
+
+		[self moveTabAtIndex:actualSource toIndex:actualDestination animated:YES];
 	}
 }
 
@@ -1081,6 +1074,41 @@ sets the variables from which self.overflows is dynamically calculated.*/
         if ([self.delegate respondsToSelector:@selector(tabView:didSelectTabAtIndex:)]) {
             [self.delegate tabView:self didSelectTabAtIndex:self.selectedTabIndex];
         }
+	}];
+}
+
+- (void)moveTabAtIndex:(NSUInteger)source toIndex:(NSUInteger)destination animated:(BOOL)animated {
+
+	if (source > self.numberOfTabs)
+		[NSException raise:NSRangeException format:@"Source index out of range"];
+
+	if (destination > self.numberOfTabs)
+		[NSException raise:NSRangeException format:@"Target index out of range"];
+
+	NSUInteger visibleSource = [self visibleIndexForTabAtIndex:source];
+	NSUInteger visibleDestination = [self visibleIndexForTabAtIndex:destination];
+
+	TRTab *draggedTab = self.tabViews[visibleSource];
+	[self.tabViews removeObjectAtIndex:visibleSource];
+	[self.tabViews insertObject:draggedTab atIndex:visibleDestination];
+
+	if (self.overflows) {
+
+		self.indexOfVisibleOverflowedTab = self.numberOfVisibleTabs - 1;
+	}
+
+	self.selectedTabIndex = destination;
+
+	[UIView animateWithDuration:kAnimationDuration animations:^{
+
+		BOOL animationWereEnabled = [UIView areAnimationsEnabled];
+		[UIView setAnimationsEnabled:animated];
+
+		[self setNeedsLayout];
+		[self layoutIfNeeded];
+		[[self.tabViews array] makeObjectsPerformSelector:@selector(setNeedsDisplay)];
+
+		[UIView setAnimationsEnabled:animationWereEnabled];
 	}];
 }
 
