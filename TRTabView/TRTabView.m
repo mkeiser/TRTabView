@@ -12,6 +12,7 @@
 #import "UIImage+TRStretching.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
+#import "TRNamedImageProvider.h"
 
 // Duration of all animations.
 static const NSTimeInterval kAnimationDuration = .2;
@@ -60,7 +61,7 @@ static const CGFloat kOverflowTableRowHeight = 44.0;
 #pragma mark - TRTabView
 #pragma mark -
 
-@interface TRTabView () <UITableViewDataSource, UITableViewDelegate>
+@interface TRTabView () <UITableViewDataSource, UITableViewDelegate, TRNamedImageProviderClient>
 
 @property (nonatomic, strong) NSMutableDictionary *tabTemplates;
 @property (nonatomic, assign, readonly) BOOL overflows;
@@ -566,7 +567,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	if(!_addButton) {
 		
 		_addButton = [[UIButton alloc] initWithFrame:[self addButtonRect]];
-		[_addButton setImage:[UIImage imageNamed:@"addButton"] forState:UIControlStateNormal];
+		[_addButton setImage:[self imageNamed:@"addButton"] forState:UIControlStateNormal];
 		[_addButton addTarget:self action:@selector(userAddTab:) forControlEvents:UIControlEventTouchUpInside];
 	}
 	
@@ -1168,14 +1169,22 @@ sets the variables from which self.overflows is dynamically calculated.*/
 
 - (void)drawRect:(CGRect)rect {
 	
-	[[[UIImage imageNamed:@"trtabview_background"] trImageWithStrechableCenterPixel] drawInRect:self.bounds];
+	[[[self imageNamed:@"trtabview_background"] trImageWithStrechableCenterPixel] drawInRect:self.bounds];
 	
-	UIImage *topEdge = [[UIImage imageNamed:@"trtab_top_edge"] trImageWithStrechableCenterPixel];
+	UIImage *topEdge = [[self imageNamed:@"trtab_top_edge"] trImageWithStrechableCenterPixel];
 	[topEdge drawInRect:CGRectMake(0, 0, self.bounds.size.width, topEdge.size.height)];
 
-	UIImage *bottomEdge = [[UIImage imageNamed:@"trtabview_bottom_edge"] trImageWithStrechableCenterPixel];
+	UIImage *bottomEdge = [[self imageNamed:@"trtabview_bottom_edge"] trImageWithStrechableCenterPixel];
 	[bottomEdge drawInRect:CGRectMake(0, self.bounds.size.height - bottomEdge.size.height, self.bounds.size.width, bottomEdge.size.height)];
 }
+
+#pragma mark - TRNamedImageProviderClient
+
+- (UIImage *)imageNamed:(NSString *)name {
+
+	return provideImageWithNameForClient(name, self);
+}
+
 
 @end
 

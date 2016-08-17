@@ -9,6 +9,7 @@
 
 #import "TRTab.h"
 #import "UIImage+TRStretching.h"
+#import "TRNamedImageProvider.h"
 
 @interface TRTabView (TRTabPrivate)
 
@@ -17,7 +18,7 @@
 
 @end
 
-@interface TRTab ()
+@interface TRTab () <TRNamedImageProviderClient>
 
 @property (nonatomic, weak) TRTabView *tabView;
 
@@ -57,7 +58,7 @@
 	[self addSubview:_titleLabel];
 	
 	_deleteButton = [[UIButton alloc] initWithFrame:CGRectZero];
-	[_deleteButton setImage:[UIImage imageNamed:@"deleteButton"] forState:UIControlStateNormal];
+	[_deleteButton setImage:[self imageNamed:@"deleteButton"] forState:UIControlStateNormal];
 	[_deleteButton addTarget:self action:@selector(delete:) forControlEvents:UIControlEventTouchUpInside];
 	_deleteButton.translatesAutoresizingMaskIntoConstraints = NO;
 	_deleteButton.showsTouchWhenHighlighted = YES;
@@ -65,7 +66,7 @@
 	[self addSubview:_deleteButton];
 	
 	_overflowButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[_overflowButton setImage:[UIImage imageNamed:@"overflowButton"] forState:UIControlStateNormal];
+	[_overflowButton setImage:[self imageNamed:@"overflowButton"] forState:UIControlStateNormal];
 	[_overflowButton addTarget:self action:@selector(overflowAction:) forControlEvents:UIControlEventTouchUpInside];
 	_overflowButton.translatesAutoresizingMaskIntoConstraints = NO;
 	_overflowButton.showsTouchWhenHighlighted = YES;
@@ -175,32 +176,38 @@ static const CGFloat kTitleLabelHorizontalMargin = 15;
 	NSUInteger draggedPosition = [self.tabView positionOfDraggedTab];
 
 	//Background
-	UIImage *backgroundImage = self.selected ? [UIImage imageNamed:@"trtab_foreground_fill"] : [UIImage imageNamed:@"trtab_background_fill"];
+	UIImage *backgroundImage = self.selected ? [self imageNamed:@"trtab_foreground_fill"] : [self imageNamed:@"trtab_background_fill"];
 	[[backgroundImage trImageWithStrechableCenterPixel] drawInRect:self.bounds];
 		
 	//Bottom edge
-	UIImage *bottomEdgeImage = [[UIImage imageNamed:@"trtab_bottom_edge"] trImageWithStrechableCenterPixel];
+	UIImage *bottomEdgeImage = [[self imageNamed:@"trtab_bottom_edge"] trImageWithStrechableCenterPixel];
 	[bottomEdgeImage drawInRect:CGRectMake(0, self.bounds.size.height - bottomEdgeImage.size.height, self.bounds.size.width, bottomEdgeImage.size.height)];
 	
 	//Top edge
 	if (!self.selected) {
-		UIImage *topEdgeImage = [[UIImage imageNamed:@"trtab_top_edge"] trImageWithStrechableCenterPixel];
+		UIImage *topEdgeImage = [[self imageNamed:@"trtab_top_edge"] trImageWithStrechableCenterPixel];
 		[topEdgeImage drawInRect:CGRectMake(0, 0, self.bounds.size.width, topEdgeImage.size.height)];
 	}
 	
 	//Left edge
 	if (position > 0 || position == draggedPosition) {
 		
-		UIImage *verticalEdgeImage = [[UIImage imageNamed:@"trtab_vertical_edge"] trImageWithStrechableCenterPixel];
+		UIImage *verticalEdgeImage = [[self imageNamed:@"trtab_vertical_edge"] trImageWithStrechableCenterPixel];
 		[verticalEdgeImage drawInRect:CGRectMake(0, 0, verticalEdgeImage.size.width, self.bounds.size.height)];
 	}
 	
 	//Right edge
 	if (CGRectGetMaxX(self.frame) < CGRectGetMaxX(self.tabView.bounds)) {
-		UIImage *verticalEdgeImage = [[UIImage imageNamed:@"trtab_vertical_edge"] trImageWithStrechableCenterPixel];
+		UIImage *verticalEdgeImage = [[self imageNamed:@"trtab_vertical_edge"] trImageWithStrechableCenterPixel];
 		[verticalEdgeImage drawInRect:CGRectMake(self.bounds.size.width - verticalEdgeImage.size.width, 0, verticalEdgeImage.size.width, self.bounds.size.height)];
 	}
 }
 
+#pragma mark - TRNamedImageProviderClient
+
+- (UIImage *)imageNamed:(NSString *)name {
+
+	return provideImageWithNameForClient(name, self);
+}
 
 @end

@@ -44,6 +44,7 @@
 		D88E0DE217C3A42D00D26892 /* trtabview_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DE017C3A42C00D26892 /* trtabview_background@2x.png */; };
 		D88E0DE517C3A48E00D26892 /* trtabview_bottom_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DE317C3A48E00D26892 /* trtabview_bottom_edge.png */; };
 		D88E0DE617C3A48E00D26892 /* trtabview_bottom_edge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DE417C3A48E00D26892 /* trtabview_bottom_edge@2x.png */; };
+		D88F1D3E1D64CE58004AFCCB /* TRNamedImageProvider.h in Sources */ = {isa = PBXBuildFile; fileRef = D88F1D3D1D64CE58004AFCCB /* TRNamedImageProvider.h */; };
 		D8F8F52B17C8F89B00DF6B15 /* TRViewController+DebugActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F8F52A17C8F89B00DF6B15 /* TRViewController+DebugActions.m */; };
 		D8F8F52F17CB562800DF6B15 /* TRContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F8F52D17CB562700DF6B15 /* TRContentViewController.m */; };
 		D8F8F53017CB562800DF6B15 /* TRContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F8F52E17CB562800DF6B15 /* TRContentViewController.xib */; };
@@ -109,6 +110,7 @@
 		D88E0DE017C3A42C00D26892 /* trtabview_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trtabview_background@2x.png"; sourceTree = "<group>"; };
 		D88E0DE317C3A48E00D26892 /* trtabview_bottom_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trtabview_bottom_edge.png; sourceTree = "<group>"; };
 		D88E0DE417C3A48E00D26892 /* trtabview_bottom_edge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trtabview_bottom_edge@2x.png"; sourceTree = "<group>"; };
+		D88F1D3D1D64CE58004AFCCB /* TRNamedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = TRNamedImageProvider.h; sourceTree = "<group>"; };
 		D8F8F52917C8F89B00DF6B15 /* TRViewController+DebugActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TRViewController+DebugActions.h"; sourceTree = "<group>"; };
 		D8F8F52A17C8F89B00DF6B15 /* TRViewController+DebugActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TRViewController+DebugActions.m"; sourceTree = "<group>"; };
 		D8F8F52C17CB562700DF6B15 /* TRContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRContentViewController.h; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				D88E0DD717C3937E00D26892 /* UIImage+TRStretching.h */,
 				D88E0DD817C3937E00D26892 /* UIImage+TRStretching.m */,
+				D88F1D3D1D64CE58004AFCCB /* TRNamedImageProvider.h */,
 				D837B64617A7125B0067C93B /* TRTabView.h */,
 				D837B64717A7125B0067C93B /* TRTabView.m */,
 				D837B65217A873E90067C93B /* TRTab.h */,
@@ -399,6 +402,7 @@
 				D88E0DDA17C3937E00D26892 /* UIImage+TRStretching.m in Sources */,
 				D8F8F52B17C8F89B00DF6B15 /* TRViewController+DebugActions.m in Sources */,
 				D8F8F52F17CB562800DF6B15 /* TRContentViewController.m in Sources */,
+				D88F1D3E1D64CE58004AFCCB /* TRNamedImageProvider.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +588,7 @@
 				544E3A611AB80B9C00AC3042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D837B60217A711E80067C93B /* Build configuration list for PBXProject "TRTabViewExample" */ = {
 			isa = XCConfigurationList;
