@@ -16,19 +16,19 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TRTabView"
-  s.version      = "0.4.1"
+  s.version      = "0.4.2"
   s.summary      = "A tab view as seen in Mobile Safari for iPad, using the familiar delegate/data source design pattern known from UITableView."
 
   s.description  = <<-DESC
                    A flexible implementation of a tabbed view like the one in Safari for iPad. It uses a delegate design pattern that is inspired by the UITableView delegate and data source methods.
-                   
+
                    Tab reordering, overflow behavior, the minimum/maximum number of tabs, the minimum/maximum tab widths and much more are easy configurable by implementing the corresponding delegate calls.
-                   
+
                    For most settings there is a reasonable default already provided.
                    Display orientation changes are supported out of the box.
-                   
+
                    See https://github.com/mkeiser/TRTabView for an example project.
-                   
+
                    DESC
 
   s.homepage     = "https://github.com/mkeiser/TRTabView"
@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
   #  Specify a social_media_url where others can refer to, for example a twitter
   #  profile URL.
   #
-  
+
   s.author             = { "Matthias Keiser" => "matthias@tristan-inc.com" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/mkeiser/TRTabView.git", :tag => "0.4.1" }
+  s.source       = { :git => "https://github.com/mkeiser/TRTabView.git", :tag => "0.4.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
