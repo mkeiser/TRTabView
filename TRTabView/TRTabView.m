@@ -10,8 +10,6 @@
 #import "TRTabView.h"
 #import "TRTab.h"
 #import "UIImage+TRStretching.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
 #import "TRNamedImageProvider.h"
 
 // Duration of all animations.
@@ -135,8 +133,7 @@ static const CGFloat kOverflowTableRowHeight = 44.0;
 		[NSException raise:NSInvalidArgumentException format:@"must pass view that must be kind of class TRTab"];
 	}
 	
-	NSString *className = [NSString stringWithUTF8String:class_getName(tabClass)];
-	self.tabTemplates[identifier] = className;
+	self.tabTemplates[identifier] = NSStringFromClass(tabClass);
 }
 
 - (TRTab *)dequeueDefaultTabForIndex:(NSUInteger)index {
