@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TRTabView"
-  s.version      = "0.5.0"
+  s.version      = "0.5.1"
   s.summary      = "A tab view as seen in Mobile Safari for iPad, using the familiar delegate/data source design pattern known from UITableView."
 
   s.description  = <<-DESC
