@@ -44,7 +44,6 @@
 		D88E0DE217C3A42D00D26892 /* trtabview_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DE017C3A42C00D26892 /* trtabview_background@2x.png */; };
 		D88E0DE517C3A48E00D26892 /* trtabview_bottom_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DE317C3A48E00D26892 /* trtabview_bottom_edge.png */; };
 		D88E0DE617C3A48E00D26892 /* trtabview_bottom_edge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88E0DE417C3A48E00D26892 /* trtabview_bottom_edge@2x.png */; };
-		D88F1D3E1D64CE58004AFCCB /* TRNamedImageProvider.h in Sources */ = {isa = PBXBuildFile; fileRef = D88F1D3D1D64CE58004AFCCB /* TRNamedImageProvider.h */; };
 		D8F8F52B17C8F89B00DF6B15 /* TRViewController+DebugActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F8F52A17C8F89B00DF6B15 /* TRViewController+DebugActions.m */; };
 		D8F8F52F17CB562800DF6B15 /* TRContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F8F52D17CB562700DF6B15 /* TRContentViewController.m */; };
 		D8F8F53017CB562800DF6B15 /* TRContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F8F52E17CB562800DF6B15 /* TRContentViewController.xib */; };
@@ -402,7 +401,6 @@
 				D88E0DDA17C3937E00D26892 /* UIImage+TRStretching.m in Sources */,
 				D8F8F52B17C8F89B00DF6B15 /* TRViewController+DebugActions.m in Sources */,
 				D8F8F52F17CB562800DF6B15 /* TRContentViewController.m in Sources */,
-				D88F1D3E1D64CE58004AFCCB /* TRNamedImageProvider.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
