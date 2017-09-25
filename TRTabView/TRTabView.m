@@ -696,21 +696,21 @@ sets the variables from which self.overflows is dynamically calculated.*/
 		
 		// Using the momentary visible index to update the size (might change because of overflow button)
 		frame.size = [self tabRectForTabAtVisibleIndex:hypotheticVisibleIndex addButtonVisible:self.showAddButton].size;
-					
-			self.currentDragOperation.tab.frame = frame;
-			self.currentDragOperation.tab.showsOverflowButton = self.overflows && (hypotheticVisibleIndex == (self.numberOfVisibleTabs - 1));
+		
+		self.currentDragOperation.tab.frame = frame;
+		self.currentDragOperation.tab.showsOverflowButton = self.overflows && (hypotheticVisibleIndex == (self.numberOfVisibleTabs - 1));
+		
+		if(hypotheticVisibleIndex != self.currentDragOperation.hypotheticVisibleIndex) {
 			
-			if(hypotheticVisibleIndex != self.currentDragOperation.hypotheticVisibleIndex) {
+			self.currentDragOperation.hypotheticVisibleIndex = hypotheticVisibleIndex;
+			
+			[UIView animateWithDuration:kAnimationDuration delay:0.0 options:UIViewAnimationOptionOverrideInheritedDuration animations:^{
 				
-				self.currentDragOperation.hypotheticVisibleIndex = hypotheticVisibleIndex;
-				
-				[UIView animateWithDuration:kAnimationDuration delay:0.0 options:UIViewAnimationOptionOverrideInheritedDuration animations:^{
-					
-					[self setNeedsLayout];
-					[self layoutIfNeeded];
-					[[self.tabViews array] makeObjectsPerformSelector:@selector(setNeedsDisplay)];
-				} completion:NULL];
-			}
+				[self setNeedsLayout];
+				[self layoutIfNeeded];
+				[[self.tabViews array] makeObjectsPerformSelector:@selector(setNeedsDisplay)];
+			} completion:NULL];
+		}
 	}
 }
 
