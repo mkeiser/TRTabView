@@ -154,11 +154,6 @@ static const CGFloat kTitleLabelHorizontalMargin = 15;
 		[self setNeedsUpdateConstraints];
 }
 
-- (void)setNeedsDisplay {
-	
-	[super setNeedsDisplay];
-}
-
 // If you modify the border thickness of the tabs (default 1.0), you might have to override the
 // tabOverlapWidth method of TRTabView to make it look good.
 
