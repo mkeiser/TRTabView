@@ -900,7 +900,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 
 
 	NSUInteger oldVisibleOverflowedIndex = self.indexOfVisibleOverflowedTab;
-	NSUInteger newIndex, newVisibleIndex = NSNotFound;
+	NSUInteger newIndex = NSNotFound, newVisibleIndex = NSNotFound;
 
 	if (self.overflows) {
 		
@@ -966,7 +966,7 @@ sets the variables from which self.overflows is dynamically calculated.*/
 	
 	self.numberOfTabs--;
 	
-	if (newVisibleIndex != NSNotFound) {
+	if (newVisibleIndex != NSNotFound && newIndex != NSNotFound) {
 		
 		[self loadTabFromDelegateAtIndex:newIndex visibleIndex:newVisibleIndex insert:YES animationStartOffset:TRTabAnimationStartOffsetRight];
 	}
